@@ -41,6 +41,21 @@
             text-decoration: none;
             font-weight: bold;
         }
+
+        /* Тёмный режим */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #333;
+                color: #eee;
+            }
+            section {
+                background-color: #444;
+                color: #eee;
+            }
+            .contact a {
+                color: #a162e8;
+            }
+        }
     </style>
 </head>
 <body>
@@ -57,3 +72,4 @@
     </div>
 </body>
 </html>
+```
