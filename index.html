@@ -54,6 +54,11 @@
     .contact a.dark-mode {
       color: #a162e8;
     }
+    .toggleDarkMode {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
   </style>
 </head>
 <body>
@@ -68,6 +73,7 @@
       contact.classList.toggle('dark-mode');
     }
   </script>
+  <button class="toggleDarkMode" onclick="toggleDarkMode()"></button>
   <div class="container">
     <section class="about">
       <img src="grey.jpg" alt="Лапкалинда">
@@ -78,7 +84,6 @@
       <h2>Свяжись со мной</h2>
       <p>Пиши на <a href="mailto:lapkalinda@mail.com">lapkalinda@mail.com</a></p>
     </section>
-    <button onclick="toggleDarkMode()">
   </div>
 </body>
 </html>
