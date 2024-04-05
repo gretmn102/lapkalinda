@@ -57,7 +57,7 @@
     .toggleDarkMode {
       position: absolute;
       top: 10px;
-      right: 10px;
+      right: calc(10px + 40px);
       background: none;
       border: none;
       cursor: pointer;
@@ -65,6 +65,11 @@
     }
     .toggleDarkMode img {
       width: 40px;
+      transition: opacity 0.3s ease;
+      position: absolute;
+    }
+    .disableIcon {
+      opacity: 0;
     }
   </style>
 </head>
@@ -81,16 +86,15 @@
       toggleIcon();
     }
     function toggleIcon() {
-      const icon = document.getElementById('darkModeIcon');
-      if (icon.src.includes('sun')) {
-        icon.src = 'moon.png';
-      } else {
-        icon.src = 'sun.png';
-      }
+      const lightModeIcon = document.getElementById('lightModeIcon');
+      lightModeIcon.classList.toggle("disableIcon");
+      const darkModeIcon = document.getElementById('darkModeIcon');
+      darkModeIcon.classList.toggle("disableIcon");
     }
   </script>
   <div class="toggleDarkMode" onclick="toggleDarkMode()">
-    <img id="darkModeIcon" src="sun.png" alt="">
+    <img id="lightModeIcon" src="sun.png" alt="">
+    <img id="darkModeIcon" class="disableIcon" src="moon.png" alt="">
   </div>
   <div class="container">
     <section class="about">
