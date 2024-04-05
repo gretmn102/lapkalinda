@@ -11,6 +11,7 @@
             padding: 0;
             background-color: #f9f4f2;
             color: #514240;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         section {
             padding: 20px;
@@ -18,6 +19,7 @@
             background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         .container {
             max-width: 800px;
@@ -41,24 +43,31 @@
             text-decoration: none;
             font-weight: bold;
         }
-
-        /* Тёмный режим */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: #333;
-                color: #eee;
-            }
-            section {
-                background-color: #444;
-                color: #eee;
-            }
-            .contact a {
-                color: #a162e8;
-            }
+        body.dark-mode {
+            background-color: #333;
+            color: #eee;
+        }
+        section.dark-mode {
+            background-color: #444;
+            color: #eee;
+        }
+        .contact a.dark-mode {
+            color: #a162e8;
         }
     </style>
 </head>
 <body>
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            body.classList.toggle('dark-mode');
+            body.querySelectorAll('section').forEach(section => {
+                section.classList.toggle('dark-mode')
+            });
+            const contact = body.querySelector('a');
+            contact.classList.toggle('dark-mode');
+        }
+    </script>
     <div class="container">
         <section class="about">
             <img src="grey.jpg" alt="Лапкалинда">
@@ -69,7 +78,7 @@
             <h2>Свяжись со мной</h2>
             <p>Пиши на <a href="mailto:lapkalinda@mail.com">lapkalinda@mail.com</a></p>
         </section>
+        <button onclick="toggleDarkMode()">
     </div>
 </body>
 </html>
-```
