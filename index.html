@@ -58,6 +58,13 @@
       position: absolute;
       top: 10px;
       right: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      outline: none;
+    }
+    .toggleDarkMode img {
+      width: 40px;
     }
   </style>
 </head>
@@ -71,9 +78,20 @@
       });
       const contact = body.querySelector('a');
       contact.classList.toggle('dark-mode');
+      toggleIcon();
+    }
+    function toggleIcon() {
+      const icon = document.getElementById('darkModeIcon');
+      if (icon.src.includes('sun')) {
+        icon.src = 'moon.png';
+      } else {
+        icon.src = 'sun.png';
+      }
     }
   </script>
-  <button class="toggleDarkMode" onclick="toggleDarkMode()"></button>
+  <div class="toggleDarkMode" onclick="toggleDarkMode()">
+    <img id="darkModeIcon" src="sun.png" alt="">
+  </div>
   <div class="container">
     <section class="about">
       <img src="grey.jpg" alt="Лапкалинда">
